@@ -31,7 +31,7 @@ export function createRequest(data: any) {
             'project_id': project_id,
             'code': code,
             'message': message,
-            'other': rest
+            'others': rest
         });
 
         return {
