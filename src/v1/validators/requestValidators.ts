@@ -10,8 +10,8 @@ export const requestValidation = joi.object({
     code: joi.number()
         .required()
         .messages({
-            "number.base": "Status is required",
-            "any.required": "Status is required"
+            "number.base": "Code is required",
+            "any.required": "Code is required"
         }),
     message: joi.string()
         .required()

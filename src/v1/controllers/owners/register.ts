@@ -8,7 +8,7 @@ export default async function (req: Request, res: Response) {
     const validate = await validateOwnerRegister(req.body ? req.body : {});
 
     if (validate.status !== status.OK) {
-        return res.status(validate.status).json(validate);
+        return res.send(validate);
     }
 
     // * Create object owner
@@ -19,8 +19,8 @@ export default async function (req: Request, res: Response) {
 
     // * Handle response
     if (response.status !== status.CREATED) {
-        return res.status(response.status).send(response);
+        return res.send(response);
     }
 
-    res.status(status.CREATED).send({ status: status.CREATED, user: response.data });
+    res.send({ status: status.CREATED, user: response.data });
 }

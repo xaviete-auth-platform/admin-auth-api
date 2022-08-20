@@ -9,7 +9,7 @@ export default async function(req: Request, res: Response) {
     const validate = await validateOwnerLogin(req.body ? req.body : {});
 
     if (validate.status !== status.OK) {
-        return res.status(validate.status).json(validate);
+        return res.json(validate);
     }
 
     const { email, password } = req.body;
@@ -18,7 +18,7 @@ export default async function(req: Request, res: Response) {
 
     if (!owner) {
 
-        return res.status(status.NOT_ACCEPTABLE).send({
+        return res.send({
             status: status.NOT_ACCEPTABLE,
             message: 'Invalid credentials. Owner no exist'
         });
@@ -27,13 +27,13 @@ export default async function(req: Request, res: Response) {
     // Validate if password is correct
     if (!validatePassword(password, owner.password.toString())) {
 
-        return res.status(status.NOT_ACCEPTABLE).send({
+        return res.send({
             status: status.NOT_ACCEPTABLE,
             message: 'Invalid credentials'
         });
     }
 
-    res.status(status.OK).send({
+    res.send({
         status: status.OK,
         message: 'Login successfully',
         owner: owner

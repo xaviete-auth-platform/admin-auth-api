@@ -1,8 +1,8 @@
 import mongoose, {Schema} from "mongoose";
 
 const ownerSchema = new Schema( {
-    name: { type: String, required: true },
-    surname: { type: String, required: true },
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     emailVerified: { type: Boolean, required: true, default: false },

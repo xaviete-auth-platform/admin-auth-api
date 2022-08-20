@@ -1,17 +1,17 @@
 import joi from 'joi';
 
 export const ownerRegisterValidation = joi.object({
-    name: joi.string()
+    firstname: joi.string()
         .required()
         .messages({
-            'string.empty': 'Name is required',
-            'any.required': 'Name is required'
+            'string.empty': 'Firstname is required',
+            'any.required': 'Firstname is required'
         }),
-    surname: joi.string()
+    lastname: joi.string()
         .required()
         .messages({
-            'string.empty': 'Surname is required',
-            'any.required': 'Surname is required'
+            'string.empty': 'Lastname is required',
+            'any.required': 'Lastname is required'
         }),
     username: joi.string()
         .required()

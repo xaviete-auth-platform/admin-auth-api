@@ -7,6 +7,7 @@ import { config } from "../config/setup";
 import owner from "../routes/owner";
 import project from "../routes/project";
 import request from "../routes/request";
+import email from "../routes/email";
 
 export function serverSetup() {
 
@@ -73,5 +74,8 @@ function routesSetup() {
 
     // * Request routes
     app.use('/request', request);
+
+    // * Email routes
+    app.use('/email', email);
 
 }
